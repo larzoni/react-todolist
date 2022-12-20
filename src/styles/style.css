@@ -1,0 +1,7 @@
+@import "./_fonts.css";
+
+:root {
+  --light-primary-dark: #575767;
+  --light-heavy-dark: #0e0e11;
+  --light-disable-dark: #b9b9be;
+}
