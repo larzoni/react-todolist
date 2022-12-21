@@ -1,9 +1,9 @@
-import Date from './components/Date';
-import './styles/style.css';
-import { useState } from 'react';
+import Date from "./components/Date";
+import "./styles/style.css";
+import { useState } from "react";
+import Tasks from "./components/Tasks";
 
 function App() {
-
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -67,30 +67,20 @@ function App() {
     },
   ]);
 
+  const handleCheck = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
   return (
     <div className="App">
       <Date />
+      <Tasks tasks={tasks} handleCheck={handleCheck} />
     </div>
   );
 }
 
 export default App;
-
-
-// Helenas försök till kod
-// export const DateTime = () => {
-//   const [date,setDate] = useState(new Date());
-    
-//     useEffect(() => {
-//     let timer = setInterval(()=>setDate(new Date()), 1000 )
-// });
-
-// return(
-//     <div class="container">
-//         <h2>Current Time</h2>
-//         <p> Time : {date.toLocaleTimeString()}</p>
-//         <p> Date : {date.toLocaleDateString()}</p>
-
-//     </div>
-// )
-// }
