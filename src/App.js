@@ -2,6 +2,7 @@ import Date from "./components/Date";
 import "./styles/style.css";
 import { useState } from "react";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -75,10 +76,15 @@ function App() {
     );
   };
 
+  const createTask = (newTask) => {
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  };
+
   return (
     <div className="App">
       <Date />
       <Tasks tasks={tasks} handleCheck={handleCheck} />
+      <AddTask taskLen={tasks.length} createTask={createTask} />
     </div>
   );
 }
